@@ -19,5 +19,7 @@ Put a few test `.mp3` files in `./music/` (gitignored) named `Title - Artist.mp3
 - [ ] `python3 server.py --help` still works
 - [ ] `/health` returns `ok`, `/api/songs` returns JSON
 - [ ] Seeking works (Range requests) on Safari
+- [ ] First-launch setup still asks for the music folder when `~/.v2music/config.json` is absent
+- [ ] A bad path is rejected with a helpful message instead of a crash
 - [ ] No hardcoded absolute paths to your own machine
 - [ ] README updated if you changed flags / behavior
