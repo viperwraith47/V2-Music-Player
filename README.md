@@ -78,6 +78,10 @@ You should then see:
    Folder: /Users/you/Music/English songs remastered V2
    Exists: True — 97 songs found
    Local:  http://localhost:8000
+   On iPhone (Tailscale): http://<your-tailscale-ip>:8000
+   Get your Tailscale IP with: tailscale ip -4
+   Change folder: python3 server.py --set-dir "/path/to/music"
+   Press Ctrl+C to stop
 ```
 
 If macOS asks “Allow Python to accept incoming connections?” → **Allow**.
