@@ -54,35 +54,39 @@ The first time you start the server, it asks which folder holds your `.mp3` file
      2  Type or Paste a Path
 
    Path format:
-     /Users/you/Music/English songs remastered V2
+     /Users/you/Music/My Albums
      ~/Music
 
    Tip: drag a folder from Finder onto this window to paste its path.
    Tip: in Finder, press ⇧⌘G to copy a path.
 
-   Suggested: /Users/you/Music/English songs remastered V2
+   Suggested: /Users/you/Music/My Albums
 
    Enter 1 or 2:
 ```
 
 - **1 — Pick a Folder** opens the native macOS folder chooser.
-- **2 — Type or Paste a Path** takes a path in either format: absolute (`/Users/you/Music/English songs remastered V2`) or relative to your home folder (`~/Music`).
+- **2 — Type or Paste a Path** takes a path in either format: absolute (`/Users/you/Music/My Albums`) or relative to your home folder (`~/Music`).
 - Paste works in every form macOS produces: drag a folder from Finder, press ⇧⌘G and copy the path, or type it yourself. Quotes and escaped spaces are handled for you.
 - Press Return on an empty line to accept the suggested folder.
 - A wrong path is caught immediately — the server tells you what is wrong and asks again without losing your place.
+
+Your choice is saved and remembered, so this only happens once.
 
 You should then see:
 
 ```
 🎵 V2 Music Server
-   Folder: /Users/you/Music/English songs remastered V2
-   Exists: True — 97 songs found
+   Folder: /Users/you/Music/My Albums
+   Exists: True — 128 songs found
    Local:  http://localhost:8000
    On iPhone (Tailscale): http://<your-tailscale-ip>:8000
    Get your Tailscale IP with: tailscale ip -4
    Change folder: python3 server.py --set-dir "/path/to/music"
    Press Ctrl+C to stop
 ```
+
+The folder and song count come from your own library — the example above is just a sample of the format.
 
 If macOS asks “Allow Python to accept incoming connections?” → **Allow**.
 

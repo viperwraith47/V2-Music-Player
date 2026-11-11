@@ -77,15 +77,24 @@ def clear_config() -> bool:
         return False
 
 def auto_detect_music_dir() -> Path:
-    """Best guess when nobody tells us where the music is."""
-    candidates = [
-        BASE / "music",
-        Path.home() / "Music" / "English songs remastered V2",
-        Path.home() / "Music",
-    ]
-    for c in candidates:
-        if c.is_dir():
-            return c
+    """Best guess when nobody tells us where the music is.
+
+    Looks for a folder that actually holds .mp3 files so the suggestion is
+    right for whoever runs it — no personal paths baked into the code.
+    """
+    for candidate in (BASE / "music", Path.home() / "Music"):
+        if not candidate.is_dir():
+            continue
+        try:
+            subfolders = sorted(candidate.iterdir(), key=lambda p: p.name.lower())
+        except OSError:
+            continue
+        # A subfolder that holds songs is a better guess than the parent.
+        for sub in subfolders[:50]:
+            if sub.is_dir() and list_songs(sub):
+                return sub
+        if list_songs(candidate):
+            return candidate
     return BASE / "music"
 
 def choose_folder_mac() -> Path | None:
@@ -136,7 +145,7 @@ def prompt_for_music_dir() -> Path | None:
     print("     2  Type or Paste a Path")
     print()
     print("   Path format:")
-    print("     /Users/you/Music/English songs remastered V2")
+    print("     /Users/you/Music/My Albums")
     print("     ~/Music")
     print()
     print("   Tip: drag a folder from Finder onto this window to paste its path.")
