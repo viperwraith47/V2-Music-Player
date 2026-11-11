@@ -1,0 +1,30 @@
+# Rename this file to .gitignore before pushing to GitHub:
+# mv gitignore.txt .gitignore
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local music (don't commit your MP3s)
+music/
+*.mp3
+*.m4a
+*.flac
+*.wav
+
+# Local env / secrets
+.env
+*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,2 @@
+# No dependencies — Python 3.8+ stdlib only.
+# This file exists so GitHub / tooling knows there's nothing to install.
